@@ -1,0 +1,37 @@
+{
+  "dataset_period": {
+    "start": "2026-01-01T00:00:00Z",
+    "end": "2026-01-08T00:00:00Z",
+    "end_is_exclusive": true
+  },
+  "scenarios": [
+    {
+      "scenario_id": "john-account-compromise-simulation",
+      "suspicious_user": "john.martinez",
+      "suspicious_ip": "203.0.113.77",
+      "benign_or_malicious_simulation": "malicious",
+      "expected_findings": [
+        "repeated failed logins",
+        "successful login after failures",
+        "same IP used for failures and success",
+        "new country",
+        "new device",
+        "suspicious post-login resource access",
+        "one IP targeted multiple accounts"
+      ]
+    },
+    {
+      "scenario_id": "alice-corporate-vpn-false-positive",
+      "suspicious_user": "amelia.moreno",
+      "suspicious_ip": "198.51.100.200",
+      "benign_or_malicious_simulation": "benign",
+      "expected_findings": [
+        "repeated failed logins",
+        "successful login after failures",
+        "known device",
+        "known country",
+        "corporate VPN explanation should be considered"
+      ]
+    }
+  ]
+}

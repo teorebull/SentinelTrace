@@ -13,5 +13,5 @@ class SecurityEvent(BaseModel):
     source_ip: str
     country: str
     user_agent: str
-    resource: None | str
-    session_id: None | str
+    resource: str | None = None
+    session_id: str | None = None
