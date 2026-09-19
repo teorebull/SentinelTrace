@@ -1,8 +1,8 @@
-from datetime import UTC, datetime
+from datetime import datetime
 
-from sentineltrace.models.events import SecurityEvent
 from sentineltrace.analysis.authentication import get_successful_logins
 from sentineltrace.data.repository import get_date_range_events
+from sentineltrace.models.events import SecurityEvent
 
 
 def get_user_baseline(
@@ -68,31 +68,3 @@ def compare_event_to_baseline(event: SecurityEvent, baseline: dict) -> dict:
     comparison_results["unusual_login_hour"] = results[3]
 
     return comparison_results
-
-
-# historical_events = load_events("../../../datasets/authentication_events.json")
-# print("Baseline:")
-# baseline = get_user_baseline(historical_events, "john.martinez", datetime(2026, 1, 1, tzinfo=UTC), datetime(2026, 1, 7, tzinfo=UTC))
-# print(baseline)
-
-# print("Suspicious activity:")
-# suspicious_activity = get_user_baseline(historical_events, "john.martinez", datetime(2026, 1, 7, tzinfo=UTC), datetime(2026, 1, 8, tzinfo=UTC))  # Example usage
-# print(suspicious_activity)
-
-
-### Comparison
-john_martinez_event = SecurityEvent(
-    event_id="evt-00389",
-    timestamp=datetime(2026, 1, 7, 3, 17, 24, tzinfo=UTC),
-    user_id="john.martinez",
-    event_type="authentication",
-    success=True,
-    source_ip="203.0.113.77",
-    country="RU",
-    device_id="device-999",
-    user_agent="UnknownClient/1.0",
-    session_id="sess-4f8c2a91de77b630",
-)
-# comparison_results = compare_event_to_baseline(john_martinez_event, baseline)
-# print("Comparison Results:")
-# print(comparison_results)
