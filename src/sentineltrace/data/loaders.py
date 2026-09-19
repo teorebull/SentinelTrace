@@ -10,6 +10,7 @@ def load_events(file_path: str) -> list[SecurityEvent]:
         validated_events = validate_events(data)
     return validated_events
 
+
 # Validate using pydantic
 def validate_events(raw_events: list[dict]) -> list[SecurityEvent]:
     validated_events = []

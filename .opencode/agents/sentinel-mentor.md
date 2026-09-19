@@ -1,6 +1,7 @@
 ---
 description: Technical mentor for SentinelTrace focused on Python, GenAI, cybersecurity, and learning-by-building.
 mode: primary
+color: "#0d962b"
 permissions:
   - action: edit
     resource: "*"

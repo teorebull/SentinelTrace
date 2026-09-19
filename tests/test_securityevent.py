@@ -68,4 +68,3 @@ def test_event_id_is_required():
             country="US",
             user_agent="Mozilla/5.0",
         )
-    
