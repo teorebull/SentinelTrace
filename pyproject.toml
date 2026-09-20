@@ -5,6 +5,9 @@ description = "An agentic authentication-security investigation project"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "ipython>=9.17.1",
+    "langchain>=1.4.2",
+    "langgraph>=1.2.11",
     "ollama>=0.6.2",
     "pandas>=2.2",
     "pydantic>=2.0",

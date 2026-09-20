@@ -2,9 +2,9 @@ import json
 
 from ollama import ChatResponse
 
-from sentineltrace.tools import TOOL_DEFINITIONS, execute_tool
-from sentineltrace.models.events import SecurityEvent
 from sentineltrace.llm import ask_model
+from sentineltrace.models.events import SecurityEvent
+from sentineltrace.tools import TOOL_DEFINITIONS, execute_tool
 
 SYSTEM_PROMPT = """
 You are a defensive authentication-log investigator.
@@ -46,7 +46,6 @@ def run_agent(
         messages.append(response.message)
 
         if response.message.tool_calls:
-            # If there are tool calls, execute the first one and append the result to messages
             for tool_call in response.message.tool_calls:
                 tool_name = tool_call.function.name
                 tool_args = tool_call.function.arguments
@@ -62,5 +61,5 @@ def run_agent(
                 )
 
         else:
-            return messages[-1]  # Get the final anwer only if no tool calls are made
+            return messages[-1]
     return response
